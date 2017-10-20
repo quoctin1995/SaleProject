@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.liquibase.org/xml/ns/dbchangelog">
+
+
+	<changeSet author="dqtin" id="1">
+		<createTable tableName="product">
+			<column type="uuid" name="product_id">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column type="integer" name="item" />
+			<column type="varchar" name="class" />
+			<column type="varchar" name="inventory" />
+		</createTable>
+		
+		<createTable tableName="location">
+			<column type="uuid" name="location_id">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column type="varchar" name="country" />
+			<column type="varchar" name="city" />
+		</createTable>
+
+		<createTable tableName="time">
+			<column type="uuid" name="time_id">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column type="integer" name="month" />
+			<column type="integer" name="quarter" />
+			<column type="integer" name="year" />
+		</createTable>
+
+		<createTable tableName="sale">
+			<column type="uuid" name="product_id">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column type="uuid" name="time_id">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column type="uuid" name="location_id">
+				<constraints nullable="false" primaryKey="true" />
+			</column>
+			<column type="money" name="dollars" />
+		</createTable>
+
+		<addForeignKeyConstraint referencedTableName="product"
+			referencedColumnNames="product_id" constraintName="fk_sale_product"
+			baseTableName="sale" baseColumnNames="product_id" />
+
+		<addForeignKeyConstraint referencedTableName="time"
+			referencedColumnNames="time_id" constraintName="fk_sale_time"
+			baseTableName="sale" baseColumnNames="time_id" />
+
+		<addForeignKeyConstraint referencedTableName="location"
+			referencedColumnNames="location_id" constraintName="fk_sale_location"
+			baseTableName="sale" baseColumnNames="location_id" />
+
+	</changeSet>
+
+</databaseChangeLog>
