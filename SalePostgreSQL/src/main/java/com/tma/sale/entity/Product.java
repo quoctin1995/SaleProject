@@ -1,6 +1,5 @@
 package com.tma.sale.entity;
 
-import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 

@@ -34,7 +34,7 @@ public class ProductController {
 		List<Product> listProduct = productService.findAllProduct();
 
 		if(listProduct == null) {
-			throw new NoHandlerFoundException("NOT FOUND");
+			throw new NoHandlerFoundException("NOT FOUND DATA");
 		}
 		
 		List<ProductDTO> listProductDTO = new ArrayList<>();
