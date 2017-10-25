@@ -1,7 +1,6 @@
 package com.tma.sale.entity;
 
-import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,7 +15,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "role", schema = "public")
-public class Role implements Serializable {
+public class Role{
 
 	private int roleId;
 	private String roleName;

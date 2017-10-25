@@ -1,6 +1,5 @@
 package com.tma.sale.entity;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,7 +16,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "user", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = "password"),
 		@UniqueConstraint(columnNames = "username") })
-public class User implements Serializable {
+public class User{
 	private int userId;
 	private String name;
 	private String username;
