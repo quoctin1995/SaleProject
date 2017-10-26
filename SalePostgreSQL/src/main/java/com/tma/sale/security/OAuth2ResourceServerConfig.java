@@ -20,34 +20,22 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.
-		anonymous().disable()
-		.requestMatchers().antMatchers("/product/**")
-		.and().authorizeRequests()
-		.antMatchers("/product/**").access("hasRole('ROLE_ADMIN')")
-		.and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
-		
-		http.
-		anonymous().disable()
-		.requestMatchers().antMatchers("/location/**")
-		.and().authorizeRequests()
-		.antMatchers("/location/**").access("hasRole('ROLE_ADMIN')")
-		.and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
-		
-		http.
-		anonymous().disable()
-		.requestMatchers().antMatchers("/time/**")
-		.and().authorizeRequests()
-		.antMatchers("/time/**").access("hasRole('ROLE_ADMIN')")
-		.and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
-		
-		http.
-		anonymous().disable()
-		.requestMatchers().antMatchers("/sale/**")
-		.and().authorizeRequests()
-		.antMatchers("/sale/**").access("hasRole('ROLE_ADMIN')")
-		.and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
-		
+		http.anonymous().disable().requestMatchers().antMatchers("/product/**").and().authorizeRequests()
+				.antMatchers("/product/**").access("hasRole('ROLE_ADMIN')").and().exceptionHandling()
+				.accessDeniedHandler(new OAuth2AccessDeniedHandler());
+
+		http.anonymous().disable().requestMatchers().antMatchers("/location/**").and().authorizeRequests()
+				.antMatchers("/location/**").access("hasRole('ROLE_ADMIN')").and().exceptionHandling()
+				.accessDeniedHandler(new OAuth2AccessDeniedHandler());
+
+		http.anonymous().disable().requestMatchers().antMatchers("/time/**").and().authorizeRequests()
+				.antMatchers("/time/**").access("hasRole('ROLE_ADMIN')").and().exceptionHandling()
+				.accessDeniedHandler(new OAuth2AccessDeniedHandler());
+
+		http.anonymous().disable().requestMatchers().antMatchers("/sale/**").and().authorizeRequests()
+				.antMatchers("/sale/**").access("hasRole('ROLE_ADMIN')").and().exceptionHandling()
+				.accessDeniedHandler(new OAuth2AccessDeniedHandler());
+
 	}
 
 }

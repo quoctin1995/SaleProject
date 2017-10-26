@@ -59,48 +59,44 @@
 
 	</changeSet>
 
-	<changeSet author="dqtin" id="2" >
-	<createTable tableName="user">
-		<column name="user_id" type="integer">
-			<constraints primaryKey="true" nullable="false" />
-		</column>
-		<column name="name" type="varchar"></column>
-		<column name="username" type="varchar">
-			<constraints unique="true" nullable="false"/>
-		</column>
-		<column name="password" type="varchar">
-			<constraints unique="true" nullable="false"/>
-		</column>
-	</createTable>
-	
-	<createTable tableName="role">
-		<column name="role_id" type="integer">
-			<constraints primaryKey="true" nullable="false"/>
-		</column>
-		<column name="role_name" type="varchar"></column>
-		<column name="created_date" type="date"></column>
-	</createTable>
-	
-	<createTable tableName="user_role">
-		<column name="user_id" type="integer">
-			<constraints primaryKey="true" nullable="false"/>
-		</column>
-		<column name="role_id" type="integer">
-			<constraints primaryKey="true" nullable="false"/>
-		</column>
-	</createTable>
-	<addForeignKeyConstraint baseColumnNames="user_id"
-            baseTableName="user_role"
-            constraintName="fk_user_role_user"
-            referencedColumnNames="user_id"
-            referencedTableName="user"/>
-            
-     <addForeignKeyConstraint baseColumnNames="role_id"
-		     baseTableName="user_role"
-		     constraintName="fk_user_role_role"
-		     referencedColumnNames="role_id"
-		     referencedTableName="role"/>
-			
-</changeSet>
+	<changeSet author="dqtin" id="2">
+		<createTable tableName="user">
+			<column name="user_id" type="integer">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="name" type="varchar"></column>
+			<column name="username" type="varchar">
+				<constraints unique="true" nullable="false" />
+			</column>
+			<column name="password" type="varchar">
+				<constraints unique="true" nullable="false" />
+			</column>
+		</createTable>
+
+		<createTable tableName="role">
+			<column name="role_id" type="integer">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="role_name" type="varchar"></column>
+			<column name="created_date" type="date"></column>
+		</createTable>
+
+		<createTable tableName="user_role">
+			<column name="user_id" type="integer">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="role_id" type="integer">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+		</createTable>
+		<addForeignKeyConstraint baseColumnNames="user_id"
+			baseTableName="user_role" constraintName="fk_user_role_user"
+			referencedColumnNames="user_id" referencedTableName="user" />
+
+		<addForeignKeyConstraint baseColumnNames="role_id"
+			baseTableName="user_role" constraintName="fk_user_role_role"
+			referencedColumnNames="role_id" referencedTableName="role" />
+
+	</changeSet>
 
 </databaseChangeLog>

@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.tma.sale.entity.Time;
 
-public interface TimeRepository extends JpaRepository<Time, UUID>{
+public interface TimeRepository extends JpaRepository<Time, UUID> {
 
 }

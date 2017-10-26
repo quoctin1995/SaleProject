@@ -13,12 +13,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "product", schema = "public")
 public class Product {
-	
+
 	private UUID productId;
 	private Integer item;
 	private String class_pr;
 	private String inventory;
-	private Set<Sale> sale ;
+	private Set<Sale> sale;
 
 	public Product() {
 	}

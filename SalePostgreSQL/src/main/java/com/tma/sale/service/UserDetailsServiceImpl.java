@@ -28,7 +28,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepository.findByusernameContaining(username);
 		if (user == null) {
-			throw new UsernameNotFoundException("User not found");
+			throw new UsernameNotFoundException("User is not found");
 		}
 
 		Set<GrantedAuthority> grantedAuthorities = new HashSet<>();

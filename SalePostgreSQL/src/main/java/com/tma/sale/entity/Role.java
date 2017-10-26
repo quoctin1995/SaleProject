@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "role", schema = "public")
-public class Role{
+public class Role {
 
 	private int roleId;
 	private String roleName;

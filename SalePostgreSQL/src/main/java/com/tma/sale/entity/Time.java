@@ -18,7 +18,7 @@ public class Time {
 	private Integer month;
 	private Integer quarter;
 	private Integer year;
-	private Set<Sale> sale ;
+	private Set<Sale> sale;
 
 	public Time() {
 	}
@@ -82,4 +82,3 @@ public class Time {
 	}
 
 }
-

@@ -14,10 +14,10 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 
 @Configuration
 @EnableAuthorizationServer
-public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter{
-	
-private static String REALM="EXAMPLE_REALM";
-	
+public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter {
+
+	private static String REALM = "EXAMPLE_REALM";
+
 	@Autowired
 	private TokenStore tokenStore;
 
@@ -31,26 +31,21 @@ private static String REALM="EXAMPLE_REALM";
 	@Override
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
-		clients.inMemory()
-	        .withClient("my-trusted-client") // client id
-            .authorizedGrantTypes("password", "authorization_code", "refresh_token","implicit")
-            .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
-            .scopes("read", "write", "trust")
-            .secret("secret")
-            .accessTokenValiditySeconds(1800).
-            refreshTokenValiditySeconds(3000);
-            
+		clients.inMemory().withClient("my-trusted-client")
+				.authorizedGrantTypes("password", "authorization_code", "refresh_token", "implicit")
+				.authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT").scopes("read", "write", "trust").secret("secret")
+				.accessTokenValiditySeconds(1800).refreshTokenValiditySeconds(3000);
+
 	}
 
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		endpoints.tokenStore(tokenStore).userApprovalHandler(handler)
-				.authenticationManager(authManager);
+		endpoints.tokenStore(tokenStore).userApprovalHandler(handler).authenticationManager(authManager);
 	}
 
 	@Override
 	public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
-		oauthServer.realm(REALM+"/client");
+		oauthServer.realm(REALM + "/client");
 	}
 
 }

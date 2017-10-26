@@ -11,11 +11,11 @@ import com.tma.sale.entity.Sale;
 import com.tma.sale.repository.SaleRepository;
 
 @Service
-public class SaleServiceImpl implements SaleService{
+public class SaleServiceImpl implements SaleService {
 
 	@Autowired
 	private SaleRepository saleRepository;
-	
+
 	@Override
 	public List<Sale> getSale() {
 		return saleRepository.findAll();
@@ -32,4 +32,3 @@ public class SaleServiceImpl implements SaleService{
 	}
 
 }
-

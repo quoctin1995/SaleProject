@@ -14,7 +14,7 @@ import org.postgresql.util.PGmoney;
 
 @Entity
 @Table(name = "sale", schema = "public")
-public class Sale{
+public class Sale {
 
 	private SaleId id;
 	private Location location;

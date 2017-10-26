@@ -11,12 +11,12 @@ import com.tma.sale.exception.NoHandlerFoundException;
 
 @RestControllerAdvice
 public class ExceptionHandlerController {
-	@ExceptionHandler(value = {ConstraintViolationException.class})
+	@ExceptionHandler(value = { ConstraintViolationException.class })
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public CustomException constraintViolationException(ConstraintViolationException ex) {
 		return new CustomException(400, ex.getMessage());
 	}
-	
+
 	@ExceptionHandler(value = { NoHandlerFoundException.class })
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public CustomException noHandlerFoundException(Exception ex) {

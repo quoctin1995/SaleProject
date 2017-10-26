@@ -18,25 +18,25 @@ import com.tma.sale.service.ProductService;
 @RestController
 @RequestMapping("product")
 public class ProductController {
-	
+
 	@Autowired
 	private ProductService productService;
-	
+
 	@RequestMapping(method = RequestMethod.POST)
 	public void saveProduct(@RequestBody Product product) {
 		UUID uuid = UUID.randomUUID();
 		product.setProductId(uuid);
 		productService.saveProduct(product);
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public List<ProductDTO> getAllProducts() {
 		List<Product> listProduct = productService.findAllProduct();
 
-		if(listProduct == null) {
+		if (listProduct == null) {
 			throw new NoHandlerFoundException("NOT FOUND DATA");
 		}
-		
+
 		List<ProductDTO> listProductDTO = new ArrayList<>();
 		for (Product product : listProduct) {
 			listProductDTO.add(new ProductDTO(product));

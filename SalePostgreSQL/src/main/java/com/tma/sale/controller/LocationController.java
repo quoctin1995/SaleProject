@@ -20,7 +20,6 @@ import com.tma.sale.service.LocationService;
 @RestController
 @RequestMapping("location")
 public class LocationController {
-	
 
 	@Autowired
 	private LocationService locationService;
@@ -32,20 +31,20 @@ public class LocationController {
 		locationService.saveLocation(location);
 		return new ResponseEntity<Location>(HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<LocationDTO>> getAllLocation() {
 		List<Location> listLocation = null;
 		listLocation = locationService.getAllLocation();
-		
-		if(listLocation.size() == 0) {
+
+		if (listLocation.size() == 0) {
 			throw new NoHandlerFoundException("NOT FOUND DATA");
 		}
-		
+
 		List<LocationDTO> listLocationDTO = new ArrayList<>();
 		for (Location location : listLocation) {
 			listLocationDTO.add(new LocationDTO(location));
 		}
-		return new ResponseEntity<>(listLocationDTO,HttpStatus.OK);
+		return new ResponseEntity<>(listLocationDTO, HttpStatus.OK);
 	}
 }

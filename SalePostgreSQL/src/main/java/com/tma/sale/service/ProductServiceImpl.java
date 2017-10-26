@@ -9,11 +9,11 @@ import com.tma.sale.entity.Product;
 import com.tma.sale.repository.ProductRepository;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private ProductRepository productRepostory;
-	
+
 	@Override
 	public void saveProduct(Product product) {
 		productRepostory.save(product);

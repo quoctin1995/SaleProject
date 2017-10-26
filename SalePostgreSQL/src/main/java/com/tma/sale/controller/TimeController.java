@@ -23,29 +23,28 @@ public class TimeController {
 
 	@Autowired
 	private TimeService timeService;
-	
+
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<Time> addTime(@RequestBody Time time){
+	public ResponseEntity<Time> addTime(@RequestBody Time time) {
 		UUID uuid = UUID.randomUUID();
 		time.setTimeId(uuid);
 		timeService.saveTime(time);
 		return new ResponseEntity<Time>(time, HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<TimeDTO>> getTimes(){
+	public ResponseEntity<List<TimeDTO>> getTimes() {
 		List<Time> listTimes = timeService.getAllTime();
-		
-		if(listTimes.size() == 0) {
+
+		if (listTimes.size() == 0) {
 			throw new NoHandlerFoundException("NOT FOUND DATA");
 		}
-		
+
 		List<TimeDTO> listTimeDTO = new ArrayList<>();
 		for (Time time : listTimes) {
 			listTimeDTO.add(new TimeDTO(time));
 		}
-		return new ResponseEntity<>(listTimeDTO,HttpStatus.OK);
+		return new ResponseEntity<>(listTimeDTO, HttpStatus.OK);
 	}
-	
 
 }

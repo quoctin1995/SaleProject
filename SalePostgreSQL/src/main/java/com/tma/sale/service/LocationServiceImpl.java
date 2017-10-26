@@ -9,15 +9,15 @@ import com.tma.sale.entity.Location;
 import com.tma.sale.repository.LocationRepository;
 
 @Service
-public class LocationServiceImpl implements LocationService{
+public class LocationServiceImpl implements LocationService {
 
 	@Autowired
 	private LocationRepository locationRepository;
-	
+
 	@Override
 	public void saveLocation(Location location) {
 		locationRepository.save(location);
-		
+
 	}
 
 	@Override

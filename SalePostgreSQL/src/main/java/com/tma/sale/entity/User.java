@@ -16,7 +16,7 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "user", schema = "public", uniqueConstraints = { @UniqueConstraint(columnNames = "password"),
 		@UniqueConstraint(columnNames = "username") })
-public class User{
+public class User {
 	private int userId;
 	private String name;
 	private String username;

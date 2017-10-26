@@ -9,11 +9,11 @@ import com.tma.sale.entity.Time;
 import com.tma.sale.repository.TimeRepository;
 
 @Service
-public class TimeServiceImpl implements TimeService{
+public class TimeServiceImpl implements TimeService {
 
 	@Autowired
 	private TimeRepository timeRepository;
-	
+
 	@Override
 	public List<Time> getAllTime() {
 		return timeRepository.findAll();

@@ -19,7 +19,7 @@ public class SaleId implements java.io.Serializable {
 		this.timeId = timeId;
 		this.locationId = locationId;
 	}
-	
+
 	@Column(name = "product_id", nullable = false)
 	public UUID getProductId() {
 		return this.productId;
@@ -28,7 +28,7 @@ public class SaleId implements java.io.Serializable {
 	public void setProductId(UUID productId) {
 		this.productId = productId;
 	}
-	
+
 	@Column(name = "time_id", nullable = false)
 	public UUID getTimeId() {
 		return this.timeId;
@@ -37,7 +37,7 @@ public class SaleId implements java.io.Serializable {
 	public void setTimeId(UUID timeId) {
 		this.timeId = timeId;
 	}
-	
+
 	@Column(name = "location_id", nullable = false)
 	public UUID getLocationId() {
 		return this.locationId;
@@ -48,4 +48,3 @@ public class SaleId implements java.io.Serializable {
 	}
 
 }
-
