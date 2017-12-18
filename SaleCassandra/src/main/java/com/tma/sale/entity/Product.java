@@ -23,6 +23,9 @@ public class Product {
 		this.class_pr = class_pr;
 		this.inventory = inventory;
 	}
+	public Product() {
+		
+	}
 
 	public UUID getProductId() {
 		return productId;

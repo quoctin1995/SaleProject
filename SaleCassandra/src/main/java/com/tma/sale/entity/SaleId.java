@@ -14,6 +14,12 @@ public class SaleId implements Serializable{
 	private UUID timeId;
 	@PrimaryKeyColumn(name = "location_id", ordinal = 2, type = PrimaryKeyType.CLUSTERED)
 	private UUID locationId;
+	@PrimaryKeyColumn(name = "customer_id", ordinal = 3, type = PrimaryKeyType.CLUSTERED)
+	private UUID customerId;
+	
+	public SaleId() {
+		
+	}
 	public UUID getProductId() {
 		return productId;
 	}
@@ -33,6 +39,12 @@ public class SaleId implements Serializable{
 		this.locationId = locationId;
 	}
 
-	
+	public UUID getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(UUID customerId) {
+		this.customerId = customerId;
+	}
 }
 

@@ -21,6 +21,8 @@ public class Location {
 		this.country = country;
 		this.city = city;
 	}
+	public Location() {
+	}
 
 	public UUID getLocationId() {
 		return locationId;

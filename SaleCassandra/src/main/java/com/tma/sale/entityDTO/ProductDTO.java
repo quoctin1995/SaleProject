@@ -21,32 +21,32 @@ public class ProductDTO {
 		return productId;
 	}
 
-	public void setProductId(UUID productId) {
-		this.productId = productId;
-	}
+//	public void setProductId(UUID productId) {
+//		this.productId = productId;
+//	}
 
 	public Integer getItem() {
 		return item;
 	}
 
-	public void setItem(Integer item) {
-		this.item = item;
-	}
+//	public void setItem(Integer item) {
+//		this.item = item;
+//	}
 
 	public String getClass_pr() {
 		return class_pr;
 	}
 
-	public void setClass_pr(String class_pr) {
-		this.class_pr = class_pr;
-	}
+//	public void setClass_pr(String class_pr) {
+//		this.class_pr = class_pr;
+//	}
 
 	public String getInventory() {
 		return inventory;
 	}
 
-	public void setInventory(String inventory) {
-		this.inventory = inventory;
-	}
+//	public void setInventory(String inventory) {
+//		this.inventory = inventory;
+//	}
 
 }

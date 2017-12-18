@@ -15,6 +15,8 @@ public class Sale {
 	private UUID timeId;
 	@PrimaryKeyColumn(name = "location_id", ordinal = 2, type = PrimaryKeyType.CLUSTERED)
 	private UUID locationId;
+	@PrimaryKeyColumn(name = "customer_id", ordinal = 3, type = PrimaryKeyType.CLUSTERED)
+	private UUID customerId;
 	@Column("dollars")
 	private BigDecimal dollars;
 
@@ -23,12 +25,16 @@ public class Sale {
 		return dollars;
 	}
 
-	public Sale(UUID productId, UUID timeId, UUID locationId, BigDecimal dollars) {
+	public Sale(UUID productId, UUID timeId, UUID locationId, UUID customerId, BigDecimal dollars) {
 		super();
 		this.productId = productId;
 		this.timeId = timeId;
 		this.locationId = locationId;
+		this.customerId = customerId;
 		this.dollars = dollars;
+	}
+	public Sale( ) {
+		
 	}
 
 	public void setDollars(BigDecimal dollars) {
@@ -59,4 +65,11 @@ public class Sale {
 		this.locationId = locationId;
 	}
 
+	public UUID getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(UUID customerId) {
+		this.customerId = customerId;
+	}
 }

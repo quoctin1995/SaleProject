@@ -24,6 +24,9 @@ public class Time {
 		this.quarter = quarter;
 		this.year = year;
 	}
+	public Time() {
+		
+	}
 
 	public UUID getTimeId() {
 		return timeId;

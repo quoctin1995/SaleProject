@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sales Management</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"></head>
+<body>
+
+	<h1>Sales Management</h1>
+
+	<h3>Location</h3>
+	<table class="data-location table table-striped" >
+		<tr>
+			<th>locationId</th>
+			<th>country</th>
+			<th>city</th>
+		</tr>
+	</table>
+	<button id="fetchLocation" class="btn btn-default" type="submit">Get Location</button> <br/>
+	
+	
+	<h3>Product</h3>
+	<table class="data-product table table-striped" >
+		<tr>
+			<th>productId</th>
+			<th>item</th>
+			<th>class_pr</th>
+			<th>inventory</th>
+		</tr>
+	</table>
+	<button id="fetchProduct" class="btn btn-default" type="submit">Get Product</button> <br/>
+	
+	<h3>Time</h3>
+	<table class="data-time table table-striped" >
+		<tr>
+			<th>timeId</th>
+			<th>month</th>
+			<th>quarter</th>
+			<th>year</th>
+		</tr>
+	</table>
+	<button id="fetchTime" class="btn btn-default" type="submit">Get Time</button> <br/>
+	
+	<h3>Sale</h3>
+	<table class="data-sale table table-striped" >
+		<tr>
+			<th>productId</th>
+			<th>timeId</th>
+			<th>locationId</th>
+			<th>dollars</th>
+		</tr>
+	</table>
+	<button id="fetchSale" class="btn btn-default" type="submit">Get Sale</button>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		$("#fetchLocation").bind("click", function() {
+
+			$.get("http://localhost:8080/location", function(data) {
+
+				$.each(data, function(i, location) {
+
+					$(".data-location").append(
+						"<tr><td>" + location.locationId + "</td>" +
+						"<td>" + location.country + "</td>" +
+						"<td>" + location.city + "</td></tr>");
+				});
+
+			});
+		});
+		
+		$("#fetchProduct").bind("click", function() {
+
+			$.get("http://localhost:8080/product", function(data) {
+
+				$.each(data, function(i, product) {
+
+					$(".data-product").append(
+						"<tr><td>" + product.productId + "</td>" +
+						"<td>" + product.item + "</td>" +
+						"<td>" + product.class_pr + "</td>" +
+						"<td>" + product.inventory + "</td></tr>");
+				});
+
+			});
+		});
+		
+		$("#fetchTime").bind("click", function() {
+
+			$.get("http://localhost:8080/time", function(data) {
+
+				$.each(data, function(i, time) {
+
+					$(".data-location").append(
+						"<tr><td>" + time.timeId + "</td>" +
+						"<td>" + time.month + "</td>" +
+						"<td>" + time.quarter + "</td>" +
+						"<td>" + time.year + "</td></tr>");
+				});
+
+			});
+		});
+		
+		$("#fetchSale").bind("click", function() {
+
+			$.get("http://localhost:8080/sale", function(data) {
+
+				$.each(data, function(i, sale) {
+
+					$(".data-location").append(
+						"<tr><td>" + sale.productId + "</td>" +
+						"<td>" + sale.timeId + "</td>" +
+						"<td>" + sale.locationId + "</td>" +
+						"<td>" + sale.dollars + "</td></tr>");
+				});
+
+			});
+		});
+	</script>
+</body>
+</html>

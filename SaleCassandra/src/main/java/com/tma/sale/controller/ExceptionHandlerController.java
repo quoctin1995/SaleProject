@@ -18,7 +18,7 @@ public class ExceptionHandlerController {
 		return new CustomException(400, ex.getMessage());
 	}
 	
-	@ExceptionHandler(value = { NoHandlerFoundException.class })
+	@ExceptionHandler(value = {NoHandlerFoundException.class})
 	@ResponseStatus(HttpStatus.NOT_FOUND)
 	public CustomException noHandlerFoundException(Exception ex) {
 		return new CustomException(404, ex.getMessage());
